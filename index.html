@@ -4,9 +4,6 @@
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -30,13 +27,24 @@
     <div class="main" ng-controller="MainController">
 
         <form ng-submit="newPlayer()" class="form-group container">
-            <input type="text" class="form-control" ng-model="newPlayerName" name="newPlayerName">
+            <input type="text" class="form-control" ng-model="newPlayerName">
             <input class="btn-primary" type="submit" value="Add Player">
         </form>
 
         <div class="container">
             <div class="row">
-                <score info="score" ng-repeat="score in scores"></score>
+                <div class="col-sm-4" ng-repeat="score in scores">
+                    <div class="row scorecard">
+                        <p class="playerName"> {{ score.name }} </p>
+                        <div class="points">
+                            <h2>
+                                <button class="btn btn-danger" ng-click="decreaseScore($index)">-</button>
+                                {{ score.score }}
+                                <button class="btn btn-success" ng-click="increaseScore($index)">+</button>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -49,8 +57,8 @@
     <!--Controllers-->
     <script src="js/controllers/MainController.js"></script>
 
-    <!--Directives-->
-    <script src="js/directives/score.js"></script>
+    <!-- jQuery (for Bootstrap) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
 
 </body>
 </html>

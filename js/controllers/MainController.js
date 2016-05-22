@@ -1,31 +1,11 @@
 app.controller('MainController', ['$scope', function ($scope) {
 
-    
-    $scope.newPlayerName = "";
 
-    $scope.scores = [
-        {
-            name: 'Eric',
-            score: 1
-        },
-        {
-            name: 'Roger',
-            score: 0
-        },
-        {
-            name: 'Eric',
-            score: 1
-        },
-        {
-            name: 'Roger',
-            score: 0
-        }
-
-    ];
+    $scope.scores = [];
 
     $scope.newPlayer = function(){
         $scope.scores.push( {
-            name: newPlayerName,
+            name: $scope.newPlayerName,
             score: 0
         });
         $scope.newPlayerName = "";
