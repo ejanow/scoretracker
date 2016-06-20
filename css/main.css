@@ -104,3 +104,14 @@ li:hover {
         width: 100%;
     }
 }
+
+.points button {
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: large;
+
+}
+
+#delete {
+    margin-left: 15px;
+}
